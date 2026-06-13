@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreya Das — IT Support × AI/ML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+<style>
+  :root{
+    --ink:#0D0D0D;
+    --paper:#FAFAF8;
+    --lime:#D4FF3F;
+    --lavender:#E8D5FF;
+    --pink:#FFB3D9;
+    --line: rgba(255,255,255,0.1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+
+  /* MARQUEE */
+  .marquee{
+    background:var(--lime);color:var(--ink);
+    overflow:hidden;white-space:nowrap;padding:10px 0;
+    border-bottom:3px solid var(--ink);
+  }
+  .marquee-track{display:inline-flex;animation:scroll 28s linear infinite;}
+  .marquee-track span{
+    font-family:'JetBrains Mono',monospace;font-weight:500;
+    font-size:13px;letter-spacing:1px;text-transform:uppercase;
+    padding:0 24px;border-right:2px solid var(--ink);
+  }
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,13,13,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;}
+  .logo{font-family:'Archivo Black',sans-serif;font-size:18px;}
+  .logo span{color:var(--lime);}
+  .navlinks{display:flex;gap:24px;}
+  .navlinks a{color:#999;text-decoration:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;transition:color 0.2s;}
+  .navlinks a:hover{color:var(--lime);}
+
+  /* HERO */
+  .hero{padding:64px 0 50px;position:relative;}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:8px;}
+  .pfp-wrap{flex-shrink:0;}
+  .pfp{
+    width:84px;height:84px;border-radius:14px;object-fit:cover;
+    border:3px solid var(--ink);outline:3px solid var(--lime);
+    transform:rotate(-6deg);
+  }
+  .badge-sticker{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;
+    font-weight:500;background:var(--lavender);color:var(--ink);
+    padding:6px 14px;border-radius:100px;transform:rotate(-3deg);
+    border:2px solid var(--ink);
+  }
+  h1{
+    font-family:'Archivo Black',sans-serif;
+    font-size:clamp(40px, 9vw, 76px);
+    line-height:1.02;
+    margin:18px 0 20px;
+    text-transform:uppercase;
+    letter-spacing:-1px;
+  }
+  h1 .line2{color:var(--lime);-webkit-text-stroke:0;}
+  h1 .line3{color:transparent;-webkit-text-stroke:2px var(--paper);}
+  .hero-sub{
+    font-size:17px;color:#bbb;max-width:480px;margin-bottom:28px;
+    font-weight:400;
+  }
+  .hero-sub b{color:var(--paper);font-weight:700;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:'Inter',sans-serif;font-weight:700;font-size:13px;
+    text-transform:uppercase;letter-spacing:0.5px;
+    padding:14px 26px;border-radius:100px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    border:2px solid var(--ink);transition:transform 0.15s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-fill{background:var(--lime);color:var(--ink);}
+  .btn-ghost{background:transparent;color:var(--paper);border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--paper);}
+
+  /* SECTIONS */
+  section{padding:56px 0;border-top:1px solid var(--line);}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--ink);background:var(--lime);
+    display:inline-block;padding:4px 12px;border-radius:6px;
+    margin-bottom:14px;font-weight:500;
+  }
+  h2{
+    font-family:'Archivo Black',sans-serif;font-size:clamp(28px,5vw,40px);
+    text-transform:uppercase;margin-bottom:32px;letter-spacing:-0.5px;
+  }
+
+  /* EXPERIENCE - stacked cards, tilted */
+  .job{
+    background:#171717;border:1px solid var(--line);border-radius:16px;
+    padding:24px;margin-bottom:18px;position:relative;
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .job:hover{border-color:var(--lime);transform:translateX(4px);}
+  .job-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .job-role{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;}
+  .job-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:#999;margin-top:4px;}
+  .pill{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    padding:6px 14px;border-radius:100px;white-space:nowrap;
+  }
+  .pill.done{background:var(--lime);color:var(--ink);}
+  .pill.now{background:var(--pink);color:var(--ink);}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .job li{font-size:14px;color:#ccc;padding-left:20px;position:relative;}
+  .job li::before{content:'→';position:absolute;left:0;color:var(--lime);font-weight:700;}
+
+  /* PROJECTS - horizontal scroll feel but wraps */
+  .projects-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+  .proj{
+    background:#171717;border:1px solid var(--line);border-radius:16px;
+    padding:22px;display:flex;flex-direction:column;gap:10px;
+  }
+  .proj:nth-child(1){border-color:var(--lavender);}
+  .proj:nth-child(2){border-color:var(--pink);}
+  .proj:nth-child(3){border-color:var(--lime);}
+  .proj .num{
+    font-family:'Archivo Black',sans-serif;font-size:28px;
+    color:var(--line);
+  }
+  .proj h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;}
+  .proj p{font-size:13.5px;color:#999;flex:1;}
+  .stack{display:flex;flex-wrap:wrap;gap:6px;}
+  .stack span{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--paper);
+    border:1px solid var(--line);padding:3px 9px;border-radius:100px;
+  }
+
+  /* SKILLS - chips cloud */
+  .chip-group{margin-bottom:24px;}
+  .chip-group h4{
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--lime);
+    text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    background:#171717;border:1px solid var(--line);
+    padding:8px 16px;border-radius:100px;font-size:13px;font-weight:500;
+    transition:background 0.2s, border-color 0.2s;
+  }
+  .chip:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .edu-card{background:#171717;border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .edu-card h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;}
+  .edu-card p{font-size:13px;color:#999;}
+  .edu-card .gpa{
+    display:inline-block;margin-top:10px;font-family:'Archivo Black',sans-serif;
+    font-size:22px;color:var(--lime);
+  }
+  .cert-list{display:flex;flex-direction:column;gap:10px;}
+  .cert-item{
+    display:flex;align-items:center;gap:10px;font-size:13.5px;color:#ccc;
+    background:#171717;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+  }
+  .cert-item i{color:var(--lime);font-size:16px;flex-shrink:0;}
+
+  /* CONTACT */
+  .contact-big{
+    font-family:'Archivo Black',sans-serif;
+    font-size:clamp(32px,7vw,56px);text-transform:uppercase;
+    line-height:1.1;margin-bottom:28px;
+  }
+  .contact-big .accent{color:var(--lime);}
+  .contact-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .contact-card{
+    flex:1;min-width:160px;background:#171717;border:1px solid var(--line);
+    border-radius:16px;padding:20px;text-decoration:none;color:var(--paper);
+    display:flex;flex-direction:column;gap:10px;transition:border-color 0.2s, transform 0.2s;
+  }
+  .contact-card:hover{border-color:var(--lime);transform:translateY(-3px);}
+  .contact-card i{font-size:24px;color:var(--lime);}
+  .contact-card .label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono',monospace;}
+  .contact-card .value{font-size:14px;font-weight:700;}
+
+  footer{
+    padding:28px 0;text-align:center;font-size:12px;color:#666;
+    border-top:1px solid var(--line);
+    font-family:'JetBrains Mono',monospace;
+  }
+  footer .accent{color:var(--lime);}
+
+  @media(max-width:680px){
+    .hero-top{flex-direction:row-reverse;}
+    .edu-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+  }
+  @media(prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+    *{transition:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>✦ open to amazon onboarding 16 june</span>
+    <span>✦ 2+ yrs l1/l2 support @ tcs</span>
+    <span>✦ ai/ml internship @ labmentix</span>
+    <span>✦ gpa 9.48/10</span>
+    <span>✦ ready for 24/7 shifts</span>
+    <span>✦ open to amazon onboarding 16 june</span>
+    <span>✦ 2+ yrs l1/l2 support @ tcs</span>
+    <span>✦ ai/ml internship @ labmentix</span>
+    <span>✦ gpa 9.48/10</span>
+    <span>✦ ready for 24/7 shifts</span>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">shreya<span>.das</span></div>
+    <div class="navlinks">
+      <a href="#exp">work</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">say hi</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="badge-sticker"><i class="ti ti-bolt" aria-hidden="true" style="vertical-align:-2px;"></i> status: actively debugging life</div>
+      <div class="pfp-wrap"><img class="pfp" src="profile.png" alt="Shreya Das"></div>
+    </div>
+    <h1>tech support<br><span class="line2">by day,</span><br><span class="line3">ml nerd</span> always.</h1>
+    <p class="hero-sub">Hi, I'm <b>Shreya</b> — 2+ years solving real tickets at TCS, an AI/ML internship under my belt, and starting as an <b>IT Support Associate at Amazon on June 16</b>. Based in Durgapur, West Bengal.</p>
+    <div class="hero-cta">
+      <a class="btn btn-fill" href="#contact"><i class="ti ti-message-circle"></i>let's talk</a>
+      <a class="btn btn-ghost" href="https://github.com/Shreya-Das74" target="_blank"><i class="ti ti-brand-github"></i>github</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/shreyadas-59330b1b4" target="_blank"><i class="ti ti-brand-linkedin"></i>linkedin</a>
+    </div>
+  </div>
+</section>
+
+<section id="exp">
+  <div class="wrap">
+    <div class="tag">the resume tea</div>
+    <h2>where i've worked</h2>
+
+    <div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-role">IT Support Associate — Amazon</div>
+          <div class="job-meta">starting 16 june 2026</div>
+        </div>
+        <span class="pill now">up next</span>
+      </div>
+      <ul>
+        <li>bringing 2+ years of enterprise support energy + a customer-first mindset</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-role">Technical Support Engineer — TCS</div>
+          <div class="job-meta">pune, india · aug 2022 – jul 2024</div>
+        </div>
+        <span class="pill done">done & dusted</span>
+      </div>
+      <ul>
+        <li>handled 15-25 L1/L2 cases/day for a global client base, hitting strict SLAs</li>
+        <li>built an internal knowledge base that cut average resolution time</li>
+        <li>triaged + escalated system/network outages across time zones</li>
+        <li>mentored junior engineers on SOPs and best practices</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-role">AI/ML Intern — Labmentix</div>
+          <div class="job-meta">jul 2025 – sep 2025</div>
+        </div>
+        <span class="pill done">done & dusted</span>
+      </div>
+      <ul>
+        <li>built CNNs for medical image classification w/ transfer learning + augmentation</li>
+        <li>ran full ML pipelines — EDA, feature engineering, F1 / AUC-ROC evaluation</li>
+        <li>tuned hyperparameters and documented deployment in jupyter</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="tag">stuff i built</div>
+    <h2>projects worth flexing</h2>
+    <div class="projects-row">
+      <div class="proj">
+        <div class="num">01</div>
+        <h3>medical image classifier</h3>
+        <p>CNN pipeline for diagnostic imaging using transfer learning + data augmentation — basically diagnosing pictures the way I diagnose tickets.</p>
+        <div class="stack"><span>tensorflow</span><span>keras</span><span>python</span></div>
+      </div>
+      <div class="proj">
+        <div class="num">02</div>
+        <h3>kidney disease prediction</h3>
+        <p>ML classifier with SHAP explainability so non-technical folks can actually understand what the model's doing.</p>
+        <div class="stack"><span>scikit-learn</span><span>shap</span></div>
+      </div>
+      <div class="proj">
+        <div class="num">03</div>
+        <h3>predictive modeling + eda</h3>
+        <p>benchmarked regression & classification models with F1 and AUC-ROC to surface patterns that actually matter.</p>
+        <div class="stack"><span>python</span><span>scikit-learn</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="tag">the toolkit</div>
+    <h2>what i'm good at</h2>
+
+    <div class="chip-group">
+      <h4>support & ops</h4>
+      <div class="chips">
+        <span class="chip">L1/L2 support</span>
+        <span class="chip">SLA adherence</span>
+        <span class="chip">incident triage</span>
+        <span class="chip">ticketing systems</span>
+        <span class="chip">24/7 shift ready</span>
+      </div>
+    </div>
+    <div class="chip-group">
+      <h4>ai / ml & data</h4>
+      <div class="chips">
+        <span class="chip">TensorFlow</span>
+        <span class="chip">Keras</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">Scikit-learn</span>
+        <span class="chip">Pandas</span>
+        <span class="chip">NumPy</span>
+      </div>
+    </div>
+    <div class="chip-group">
+      <h4>programming & systems</h4>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">SQL / PL-SQL</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Linux/Bash</span>
+        <span class="chip">Windows</span>
+        <span class="chip">Databricks</span>
+        <span class="chip">Jupyter</span>
+      </div>
+    </div>
+    <div class="chip-group">
+      <h4>languages</h4>
+      <div class="chips">
+        <span class="chip">English</span>
+        <span class="chip">Bengali (native)</span>
+        <span class="chip">Hindi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="tag">the receipts</div>
+    <h2>education & certs</h2>
+    <div class="edu-grid">
+      <div>
+        <div class="edu-card" style="margin-bottom:14px;">
+          <h3>MCA — AI/ML Development</h3>
+          <p>Dr. B.C. Roy Engineering College</p>
+          <p>expected june 2026 · 4th sem</p>
+        </div>
+        <div class="edu-card">
+          <h3>BCA</h3>
+          <p>Dr. B.C. Roy Engineering College · graduated 2022</p>
+          <div class="gpa">9.48 / 10</div>
+        </div>
+      </div>
+      <div class="cert-list">
+        <div class="cert-item"><i class="ti ti-certificate"></i>Databricks — SQL Analytics & BI</div>
+        <div class="cert-item"><i class="ti ti-certificate"></i>Google — Agentic AI & Workspace Tools</div>
+        <div class="cert-item"><i class="ti ti-certificate"></i>IBM/Coursera — Data Analysis with Python</div>
+        <div class="cert-item"><i class="ti ti-certificate"></i>IBM/Coursera — Generative AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="tag">don't be shy</div>
+    <div class="contact-big">let's <span class="accent">connect</span> &<br>build cool stuff.</div>
+    <div class="contact-row">
+      <a class="contact-card" href="mailto:shreyad715@gmail.com">
+        <i class="ti ti-mail"></i>
+        <div class="label">email</div>
+        <div class="value">shreyad715@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/shreyadas-59330b1b4" target="_blank">
+        <i class="ti ti-brand-linkedin"></i>
+        <div class="label">linkedin</div>
+        <div class="value">shreyadas-59330b1b4</div>
+      </a>
+      <a class="contact-card" href="https://github.com/Shreya-Das74" target="_blank">
+        <i class="ti ti-brand-github"></i>
+        <div class="label">github</div>
+        <div class="value">Shreya-Das74</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">made with <span class="accent">★</span> in durgapur, west bengal · 2026</div>
+</footer>
+
+</body>
+</html>
